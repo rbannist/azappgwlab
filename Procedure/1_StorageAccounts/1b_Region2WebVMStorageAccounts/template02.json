@@ -1,0 +1,49 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storageAccounts_<**Region2DiagStorageAccountName**>_name": {
+            "defaultValue": "<**Region2DiagStorageAccountName**>",
+            "type": "String"
+        },
+        "storageAccounts_<**Region2DisksStorageAccountName**>_name": {
+            "defaultValue": "<**Region2DisksStorageAccountName**>",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "comments": "Generalized from resource: '/subscriptions/<**SubscriptionID**>/resourceGroups/<**Region2StorageResourceGroupName**>1/providers/Microsoft.Storage/storageAccounts/<**Region2DiagStorageAccountName**>'.",
+            "type": "Microsoft.Storage/storageAccounts",
+            "sku": {
+                "name": "Standard_LRS",
+                "tier": "Standard"
+            },
+            "kind": "Storage",
+            "name": "[parameters('storageAccounts_<**Region2DiagStorageAccountName**>_name')]",
+            "apiVersion": "2016-01-01",
+            "location": "westeurope",
+            "tags": {},
+            "scale": null,
+            "properties": {},
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/<**SubscriptionID**>/resourceGroups/<**Region2StorageResourceGroupName**>/providers/Microsoft.Storage/storageAccounts/<**Region2DisksStorageAccountName**>'.",
+            "type": "Microsoft.Storage/storageAccounts",
+            "sku": {
+                "name": "Standard_LRS",
+                "tier": "Standard"
+            },
+            "kind": "Storage",
+            "name": "[parameters('storageAccounts_<**Region2DisksStorageAccountName**>_name')]",
+            "apiVersion": "2016-01-01",
+            "location": "westeurope",
+            "tags": {},
+            "scale": null,
+            "properties": {},
+            "dependsOn": []
+        }
+    ]
+}
